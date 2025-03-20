@@ -10,7 +10,7 @@ function ProductList({ produtos, addToShoppingList }) {
                         <p><strong>{produto.product_name || "Nome não disponível"}</strong></p>
                         <p>Marca: {produto.brands || "Não informado"}</p>
                         <p>Categoria: {produto.categories || "Sem categoria"}</p>
-                        <button onClick={() => addToShoppingList(produto)}>Adicionar à Lista</button>
+                        <button className="addListItem" onClick={(e) => addToShoppingList(e, produto)}>Adicionar à Lista</button>
                     </li>
                 ))}
             </ul>

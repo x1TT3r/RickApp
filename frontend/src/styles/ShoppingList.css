@@ -22,37 +22,45 @@ h2 {
   text-align: center;
 }
 
-  
-  input, button {
-    margin: 5px;
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: none;
-    outline: 1px solid;
-  }
-
 .addListItem {
     background-color: #a3f7a6;
     color: #045014;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    padding: 8px 10px;
+    border: none;
     outline: 1px solid;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
+    box-shadow: 2px 1px 500px rgba(14, 41, 8, 0.582), 
+                1px 3px 2px rgb(12, 65, 10); /* Intensificação da sombra */
 }
 
 .addListItem:hover{
   background-color: #4caf50;
-  color: #a3f7a6;
+  color: #c8f8ca;
+  box-shadow: 5px 5px 5px rgba(142, 243, 121, 0.582), 
+              2px 4px 10px 2px rgb(6, 34, 5); /* Intensificação da sombra */
 }
 
 .removeListItem {
-    color: red;
-    border: none;
-    margin-top: 10px;
+  color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
+  box-shadow: 2px 1px 500px rgba(255, 0, 0, 0.582),
+              1px 3px 2px rgb(92, 13, 13); /* Intensificação da sombra */
 }
+
 
 .removeListItem:hover {
   background-color: red;
   color: #fff;
+  box-shadow: 2px 3px 10px rgba(255, 0, 0, 0.582), 
+              2px 4px 10px 2px rgb(59, 6, 6); /* Intensificação da sombra */
 }
 
 .Lista {
@@ -84,31 +92,17 @@ li {
   margin: 5px 0;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 li:hover {
   background: #e6f7ff;
   border-color: #b3e5fc;
-  transform: scale(1.02); /* Aumenta levemente o tamanho */
+  transform: scale(1.02) rotateX(2deg); /* Aumenta levemente o tamanho e uma leve rotação */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Realça o item */
   transition: all 0.3s ease;
 }
 
-
-li button {
-    color: #29c4f3;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-li button:hover {
-    background-color: #29c4f3;
-    color: white;
-}
 
 .fade-enter {
     opacity: 0;
@@ -116,7 +110,7 @@ li button:hover {
   }
 .fade-enter-active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1.05);
   transition: opacity 500ms, transform 500ms;
 }
 .fade-exit {
@@ -124,7 +118,7 @@ li button:hover {
 }
 .fade-exit-active {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(10px) scale(0.95);
   transition: opacity 500ms, transform 500ms;
 }
 
@@ -136,9 +130,15 @@ li button:hover {
 
 
 button:active {
-    transform: scale(0.98); /* Dá um efeito de clique */
+    transform: scale(0.78); /* Dá um efeito de clique */
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Aparência de botão pressionado */
 }
+
+button:focus, input:focus {
+  outline: 2px dashed #4caf50;
+  outline-offset: 3px;
+}
+
 
 input[type="text"], input[type="number"] {
   padding: 10px;
@@ -153,4 +153,40 @@ input[type="text"]:focus, input[type="number"]:focus {
   outline: none;
   border-color: #4caf50;
   box-shadow: 0 0 5px rgba(72, 189, 89, 0.5); /* Destaque ao focar */
+}
+
+
+/*Efeito de Deslizar*/
+
+.slide-enter {
+  opacity: 0;
+  transform: translateY(-20px); /* Começa acima da posição final */
+}
+
+.slide-enter-active {
+  opacity: 1;
+  transform: translateY(0); /* Desliza para a posição final */
+  transition: opacity 300ms ease, transform 300ms ease; /* Transição suave */
+}
+
+.slide-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-exit-active {
+  opacity: 0;
+  transform: translateY(20px); /* Desliza para fora da lista */
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.floating-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
