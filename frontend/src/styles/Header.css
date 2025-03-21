@@ -1,0 +1,119 @@
+/* Navbar Responsivo */
+.navbar {
+    padding: 10px 20px; /* Espaço interno do Navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: sticky;
+    top: 0;
+    z-index: 10000; /* Sempre visível */
+}
+
+.navbar .ms-3 {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para Tema Claro e Escuro */
+.navbar-light {
+    background-color: #fff;
+}
+
+.navbar-dark {
+    background-color: #282c34;
+    color: white;
+}
+
+/* Links do Navbar */
+.nav-link {
+    font-size: 16px; /* Tamanho do texto dos links */
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4caf50; /* Cor ao passar o mouse */
+}
+
+/* Botão de Colapso */
+.navbar-toggler {
+    border: none; /* Remove a borda padrão */
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%22http://www.w3.org/2000/svg%22 viewBox%3D%220 0 30 30%22%3E%3Cpath stroke%3D%22rgba%280, 0, 0, 0.5%29%22 stroke-width%3D%222%22 d%3D%22M4 7h22M4 15h22M4 23h22%22/%3E%3C/svg%3E');
+    filter: invert(1); /* Deixa branco no tema claro */
+}
+
+.nav-item .nav-link {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Carrinho no Navbar */
+.cart-icon {
+    position: relative; /* Para posicionar o contador */
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Espaço entre o carrinho e os outros elementos */
+}
+
+#header-cart-counter {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%; /* Formato circular */
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Estilos Customizados para Ícones */
+.cart-icon img {
+    width: 30px; /* Tamanho padrão */
+    transition: transform 0.3s ease; /* Animação suave */
+}
+
+.cart-icon img:hover {
+    transform: scale(1.1); /* Cresce ao passar o mouse */
+}
+
+/* Responsividade: Tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .navbar {
+        padding: 15px 30px; /* Ajusta o espaço interno no Navbar */
+    }
+
+    .cart-icon img {
+        width: 35px; /* Ícone maior para tablets */
+    }
+
+    #header-cart-counter {
+        width: 24px; /* Contador maior */
+        height: 24px;
+        font-size: 14px; /* Texto maior no contador */
+    }
+}
+
+/* Responsividade: Notebooks e Telas Grandes */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 20px 40px; /* Mais espaço interno */
+    }
+
+    .cart-icon img {
+        width: 50px; /* Ícone maior */
+    }
+
+    #header-cart-counter {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+}

@@ -1,11 +1,14 @@
 /* ShoppingList.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
+  font-size: 16px;
   background-color: #f0f0f5; /* Um cinza claro para suavizar a página */
   font-family: 'Poppins', sans-serif; /* Garantir fontes limpas e modernas */
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -22,52 +25,13 @@ h2 {
   text-align: center;
 }
 
-.addListItem {
-    background-color: #a3f7a6;
-    color: #045014;
-    cursor: pointer;
-    padding: 8px 10px;
-    border: none;
-    outline: 1px solid;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
-    box-shadow: 2px 1px 500px rgba(14, 41, 8, 0.582), 
-                1px 3px 2px rgb(12, 65, 10); /* Intensificação da sombra */
-}
-
-.addListItem:hover{
-  background-color: #4caf50;
-  color: #c8f8ca;
-  box-shadow: 5px 5px 5px rgba(142, 243, 121, 0.582), 
-              2px 4px 10px 2px rgb(6, 34, 5); /* Intensificação da sombra */
-}
-
-.removeListItem {
-  color: red;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-top: 10px;
-  transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
-  box-shadow: 2px 1px 500px rgba(255, 0, 0, 0.582),
-              1px 3px 2px rgb(92, 13, 13); /* Intensificação da sombra */
-}
-
-
-.removeListItem:hover {
-  background-color: red;
-  color: #fff;
-  box-shadow: 2px 3px 10px rgba(255, 0, 0, 0.582), 
-              2px 4px 10px 2px rgb(59, 6, 6); /* Intensificação da sombra */
-}
 
 .Lista {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
 }
 
 
@@ -85,14 +49,17 @@ p {
 }
 
 li {
-  width: 100%;
-  max-width: 30em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   background: #f9f9f9;
   border: 1px solid #ddd;
   margin: 5px 0;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 li:hover {
@@ -101,6 +68,13 @@ li:hover {
   transform: scale(1.02) rotateX(2deg); /* Aumenta levemente o tamanho e uma leve rotação */
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Realça o item */
   transition: all 0.3s ease;
+}
+
+li span {
+  display: block;
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -144,8 +118,8 @@ input[type="text"], input[type="number"] {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  margin-right: 5px;
   font-size: 16px;
-  margin-right: 10px;
   transition: all 0.3s ease; /* Transição suave */
 }
 
@@ -155,6 +129,50 @@ input[type="text"]:focus, input[type="number"]:focus {
   box-shadow: 0 0 5px rgba(72, 189, 89, 0.5); /* Destaque ao focar */
 }
 
+
+.addListItem {
+  background-color: #a3f7a6;
+  color: #045014;
+  cursor: pointer;
+  padding: 8px 10px;
+  border: none;
+  outline: 1px solid;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
+  box-shadow: 2px 1px 500px rgba(14, 41, 8, 0.582), 
+              1px 3px 2px rgb(12, 65, 10); /* Intensificação da sombra */
+}
+
+.addListItem:hover{
+background-color: #4caf50;
+color: #c8f8ca;
+box-shadow: 5px 5px 5px rgba(142, 243, 121, 0.582), 
+            2px 4px 10px 2px rgb(6, 34, 5); /* Intensificação da sombra */
+}
+
+.removeListItem {
+align-self: flex-end;
+margin-top: auto;
+cursor: pointer;
+color: red;
+border: none;
+border-radius: 5px;
+padding: 5px 10px;
+margin-top: 10px;
+transition: transform 0.4s, box-shadow 0.4s; /* Transição suave */
+box-shadow: 2px 1px 500px rgba(255, 0, 0, 0.582),
+            1px 3px 2px rgb(92, 13, 13); /* Intensificação da sombra */
+}
+
+
+.removeListItem:hover {
+background-color: red;
+color: #fff;
+box-shadow: 2px 3px 10px rgba(255, 0, 0, 0.582), 
+            2px 4px 10px 2px rgb(59, 6, 6); /* Intensificação da sombra */
+}
 
 /*Efeito de Deslizar*/
 
@@ -189,4 +207,56 @@ input[type="text"]:focus, input[type="number"]:focus {
   pointer-events: none;
   z-index: 1000;
   transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.dflex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023) {
+  li {
+      flex-direction: row; /* Organiza os spans e botões horizontalmente */
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+  }
+
+  .Lista {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  li span {
+      font-size: 16px; /* Aumenta o texto para melhor legibilidade */
+      width: auto; /* Remove o width fixo */
+      margin-right: 15px; /* Espaçamento entre os elementos */
+  }
+
+  .removeListItem {
+      padding: 10px 15px; /* Ajusta o botão para ficar mais proporcional */
+      font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  li {
+      flex-direction: row; /* Organiza os elementos horizontalmente */
+      justify-content: space-between; /* Espaça spans e botão */
+      padding: 25px;
+  }
+
+  li span {
+      font-size: 18px; /* Texto maior para telas grandes */
+      margin-right: 15px;
+  }
+
+  .removeListItem {
+      padding: 12px 20px; /* Botão maior para proporção adequada */
+      font-size: 16px;
+  }
 }

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 function ProductList({ produtos, addToShoppingList }) {
+    const buttonRefs = useRef([]);
     return (
         <div>
             <h2>Produtos Disponíveis</h2>
@@ -10,7 +11,13 @@ function ProductList({ produtos, addToShoppingList }) {
                         <p><strong>{produto.product_name || "Nome não disponível"}</strong></p>
                         <p>Marca: {produto.brands || "Não informado"}</p>
                         <p>Categoria: {produto.categories || "Sem categoria"}</p>
-                        <button className="addListItem" onClick={(e) => addToShoppingList(e, produto)}>Adicionar à Lista</button>
+                        <button 
+                            ref={(el) => (buttonRefs.current[index] = el)} // Armazena o botão no array de refs
+                            className="addListItem" 
+                            onClick={(e) => addToShoppingList(e, produto, buttonRefs.current[index])}
+                        >
+                            Adicionar à Lista
+                        </button>
                     </li>
                 ))}
             </ul>

@@ -22,44 +22,7 @@ function ShoppingList({items, setItems}) {
           setItems(prevItems => [...prevItems, response.data]);
           setInput("");
           setMessage("Item adicionado com Sucesso !");
-          // Animação do ponto
-          const point = document.createElement("div");
-          point.className = "floating-point";
-          document.body.appendChild(point);
-          console.log("Bolinha criada: ", point); // Verificar se está sendo criada
-
-          // Pega o botão clicado
-          const addButton = event.target; // Botão clicado
-          const cartIcon = document.querySelector("#cart-counter");
-          console.log("Botão clicado: ", addButton); // Depuração
-
-          // Calcula posições
-          const startX = addButton.getBoundingClientRect().left + 20;
-          const startY = addButton.getBoundingClientRect().top;
-          const endX = cartIcon.getBoundingClientRect().left + 10;
-          const endY = cartIcon.getBoundingClientRect().top + 10;
-
-          point.style.left = `${startX}px`;
-          point.style.top = `${startY}px`;
-
-          // Anima a bolinha
-          point.animate(
-            [
-              { transform: `translate(0, 0)` },
-              {
-                transform: `translate(${endX - startX}px, ${endY - startY}px)`,
-                opacity: 0,
-              },
-            ],
-            {
-              duration: 1500, // Velocidade ajustada
-              easing: "ease-in-out",
-            }
-          );
-
-          console.log("Animação aplicada ao ponto");
-
-          setTimeout(() => point.remove(), 1500); // Remove após a animação
+         
         })
         .catch(error => {
           setMessage("Erro ao adicionar o item.");
@@ -147,7 +110,7 @@ function ShoppingList({items, setItems}) {
                   <div className="Lista">
                     <span><strong>{item.name}</strong></span>
                     <span>Preço Unitário: <strong>R$ {item.price?.toFixed(2)}</strong></span>
-                    <span>Quantidade:
+                    <span className="dflex">Quantidade:
                       <input
                             type="number"
                             min="1"
